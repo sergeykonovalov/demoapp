@@ -1,8 +1,10 @@
 job("Node JS Deployment") {
   scm {
-    git("") { node -> 
+    // will clone repository
+    git("git://github.com/sergeykonovalov/docker-demo.git") { node -> 
       node / gitConfigName("DSL User")
       node / gitConfigEmail("skonovalov@inbox.ru")
+      // missing configuration for email and name will fail the job
     }
   }
   triggers {
